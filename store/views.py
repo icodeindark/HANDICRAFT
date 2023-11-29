@@ -3,15 +3,10 @@ from django.shortcuts import get_object_or_404, render
 from .models import Category, Product
 
 
-def categories(request):
-    return {
-        'categories': Category.objects.all()
-    }
-
 def home(request):
     return render(request,'index.html')
 
-def all_products(request):
+def product_all(request):
     products = Product.products.all()
     context = {'products': products}
     return render(request, 'category.html', context)
@@ -27,7 +22,7 @@ def category_list(request, category_slug=None):
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
     context = {'product': product}
-    return render(request, 'single-project.html', context )
+    return render(request, 'single-product.html', context )
 
 
 
