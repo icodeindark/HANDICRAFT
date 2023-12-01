@@ -16,3 +16,11 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['in_stock', 'is_active']
     list_editable = ['price', 'in_stock']
     prepopulated_fields = {'slug': ('title',)}
+
+
+class StoreAdminArea(admin.AdminSite):
+    site_header = 'Store Admin Area'
+
+store_site = StoreAdminArea(name='Store_admin_site')
+
+store_site.register(Category, CategoryAdmin)
