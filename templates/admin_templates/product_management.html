@@ -11,48 +11,45 @@
       <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 d-flex align-items-stretch">
-              <div class="card w-100">
-                <div class="card-body p-4">
-                  <div class="mb-4">
-                    <h5 class="card-title fw-semibold">Recent Transactions</h5>
+                <div class="card w-100">
+                  <div class="card-body p-4">
+                    <h5 class="card-title fw-semibold mb-4">Categories</h5>
+                    <div class="table-responsive">
+                      <table class="table text-nowrap mb-0 align-middle">
+                        <thead class="text-dark fs-4">
+                          <tr>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Id</h6>
+                            </th>
+ 
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Name</h6>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            {% for c in categories %}
+                            <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{c.id}}</h6></td>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-1"><a href="{% url 'custom_admin:product_management' category_slug=c.slug %}">{{c.name}}</a></h6>                         
+                            </td>
+                          </tr> 
+                          {% endfor %}
+     
+                         
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                  <ul class="timeline-widget mb-0 position-relative mb-n5">
-                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                      <div class="timeline-time text-dark flex-shrink-0 text-end">09:30</div>
-                      <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                        <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                        <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                      </div>
-                      <div class="timeline-desc fs-3 text-dark mt-n1">Payment received from John Doe of $385.90</div>
-                    </li>
-  
-                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                      <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
-                      <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                        <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
-                        <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                      </div>
-                      <div class="timeline-desc fs-3 text-dark mt-n1">Payment was made of $64.95 to Michael</div>
-                    </li>
-                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                      <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
-                      <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                        <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
-                        <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                      </div>
-                      <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New sale recorded <a
-                          href="javascript:void(0)" class="text-primary d-block fw-normal">#ML-3467</a>
-                      </div>
-                    </li>
-  
-                  </ul>
                 </div>
               </div>
-            </div>
+ 
+            
             <div class="col-lg-8 d-flex align-items-stretch">
               <div class="card w-100">
                 <div class="card-body p-4">
-                  <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
+                  <h5 class="card-title fw-semibold mb-4">Products</h5>
                   <div class="table-responsive">
                     <table class="table text-nowrap mb-0 align-middle">
                       <thead class="text-dark fs-4">
@@ -61,38 +58,27 @@
                             <h6 class="fw-semibold mb-0">Id</h6>
                           </th>
                           <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Assigned</h6>
-                          </th>
-                          <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Name</h6>
                           </th>
+
                           <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Priority</h6>
-                          </th>
-                          <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Budget</h6>
+                            <h6 class="fw-semibold mb-0">Price</h6>
                           </th>
                         </tr>
                       </thead>
                       <tbody>
+                        {% for product in products %}
                         <tr>
-                          <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                          <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{product.id}}</h6></td>
                           <td class="border-bottom-0">
-                              <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                              <span class="fw-normal">Web Designer</span>                          
+                              <h6 class="fw-semibold mb-1">{{product.title}}</h6>
+                              <span class="fw-normal">{{product.category}}</span>                          
                           </td>
                           <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">Elite Admin</p>
+                            <h6 class="fw-semibold mb-0 fs-4">{{product.price}}</h6>
                           </td>
-                          <td class="border-bottom-0">
-                            <div class="d-flex align-items-center gap-2">
-                              <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
-                            </div>
-                          </td>
-                          <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
-                          </td>
-                        </tr> 
+                        </tr>
+                        {% endfor %} 
   
    
                        

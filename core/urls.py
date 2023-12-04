@@ -8,7 +8,7 @@ from store.admin import store_site
 
 urlpatterns = [
     path('dj-admin/', admin.site.urls),
-    path('admin/', include('custom_admin.urls')),
+    path('admin/', include('custom_admin.urls',namespace='custom_admin')),
     
     path('', include('store.urls', namespace='store')),
     path('basket/',include('basket.urls',namespace='basket')),
