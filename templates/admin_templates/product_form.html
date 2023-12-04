@@ -1,0 +1,54 @@
+{% extends 'admin_templates/layouts/base.html' %}
+{% load static %}
+ 
+    <!--  Main wrapper -->
+
+{% block content%}
+
+    <div class="body-wrapper">
+
+      {% include 'admin_templates/inc/header.html' %}
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Forms</h5>
+              <div class="card">
+                <div class="card-body">
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ formset.management_form }}
+                        {% for form in formset %}
+                            {% for field in form %}
+                                {{ field }}
+                            {% endfor %}
+                        {% endfor %}
+                        <input type="submit" name="submit">
+                    </form>
+                    
+
+
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+ 
+   
+     
+
+    </div>
+    <script src="{% static 'admin/libs/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'admin/js/sidebarmenu.js' %}"></script>
+    <script src="{% static 'admin/js/app.min.js' %}"></script>
+    <script src="{% static 'admin/libs/simplebar/dist/simplebar.js' %}"></script>
+
+  
+{% endblock %}
