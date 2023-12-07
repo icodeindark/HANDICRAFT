@@ -61,6 +61,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'store.context_processors.categories',
                 'custom_admin.context_processors.categories',
+                'basket.context_processors.basket',
             ],
         },
     },
@@ -116,12 +117,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS =[
-    os.path.join(BASE_DIR, 'custom_admin\static'),
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, "store/static"),
+    os.path.join(BASE_DIR, "custom_admin/static"),
     
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 

@@ -36,3 +36,56 @@ def updateProduct(request,pk):
         
     context = {'form':form}
     return render(request,'admin_templates/product_form.html',context)
+
+def deleteProduct(request,pk):
+    product=Product.objects.get(id=pk)
+
+    if request.method =='POST':
+        product.delete()
+        return redirect('/')
+    context={'item':product}
+    return render(request,'admin_templates/delete_product.html',context)
+
+def editCategory(request,pk):
+    category =Category.objects.get(id=pk)
+    form = CategoryForm(instance=category)
+    if request.method == 'POST':
+        form = CategoryForm(request.POST,instance=category)
+        if form.is_valid():
+            form.save()
+            return redirect('/admin/product_management')
+        
+    context = {'form':form}
+    return render(request,'admin_templates/category_form.html',context)
+
+def deleteCategory(request,pk):
+    category =Category.objects.get(id=pk)
+
+    if request.method =='POST':
+        category.delete()
+        return redirect('/admin/product_management')
+    context={'item': category}
+    return render(request,'admin_templates/delete_product.html',context)
+
+def createCategory(request):
+    form = CategoryForm()
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/admin/product_management')
+    context = {'form':form}
+    return render(request,'admin_templates/category_form.html',context)
+
+def createProduct(request):
+    form = ProductForm()
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/admin/product_management')
+    
+    context = {'form': form}
+    return render(request,'admin_templates/product_form.html',context)
+        

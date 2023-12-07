@@ -16,16 +16,70 @@
               <div class="card">
                 <div class="card-body">
 
-                    <form action="" method="post">
+<!-- admin_templates/product_form.html -->
+
+
+
+                      <form method="post">
                         {% csrf_token %}
-                        {{ formset.management_form }}
-                        {% for form in formset %}
-                            {% for field in form %}
-                                {{ field }}
-                            {% endfor %}
-                        {% endfor %}
-                        <input type="submit" name="submit">
-                    </form>
+                        
+                        <div>
+                            <label for="{{ form.category.id_for_label }}">Category:</label>
+                            {{ form.category }}
+                            {{ form.category.errors }}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.created_by.id_for_label }}">Created by:</label>
+                            {{ form.created_by }}
+                            {{ form.created_by.errors }}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.title.id_for_label }}">Title:</label>
+                            {{ form.title }}
+                            {{ form.title.errors }}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.description.id_for_label }}">Description:</label>
+                            {{ form.description }}
+                            {{ form.description.errors }}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.image.id_for_label }}">Image:</label>
+                            {{ form.image }}
+                            {{ form.image.errors }}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.slug.id_for_label }}">Slug:</label>
+                            {{ form.slug }}
+                            {{ form.slug.errors }}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.price.id_for_label }}">Price:</label>
+                            {{ form.price }}
+                            {{ form.price.errors }}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.in_stock.id_for_label }}">In stock:</label>
+                            {{ form.in_stock }}
+                            {{ form.in_stock.errors }}
+                        </div>
+
+                        <div>
+                            <label for="{{ form.is_active.id_for_label }}">Is active:</label>
+                            {{ form.is_active }}
+                            {{ form.is_active.errors }}
+                        </div>
+
+                        <button type="submit">Update Product</button>
+                      </form>
+
                     
 
 

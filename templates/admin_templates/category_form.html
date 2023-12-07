@@ -1,0 +1,48 @@
+{% extends 'admin_templates/layouts/base.html' %}
+{% load static %}
+ 
+    <!--  Main wrapper -->
+
+{% block content%}
+
+    <div class="body-wrapper">
+
+      {% include 'admin_templates/inc/header.html' %}
+      <div class="container-fluid">
+<!-- admin_templates/category_form.html -->
+
+
+  <form method="post">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <label for="{{ form.name.id_for_label }}" class="form-label">Category Name:</label>
+        {{ form.name }}
+        {{ form.name.errors }}
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.description.id_for_label }}" class="form-label">slug:</label>
+        {{ form.slug }}
+        {{ form.slug.errors }}
+    </div>
+
+    <!-- Add more fields as needed -->
+
+    <button type="submit" class="btn btn-primary">Update</button>
+
+  </form>
+ 
+
+
+
+
+      </div>
+      <script src="{% static 'admin/libs/jquery/dist/jquery.min.js' %}"></script>
+      <script src="{% static 'admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'admin/js/sidebarmenu.js' %}"></script>
+      <script src="{% static 'admin/js/app.min.js' %}"></script>
+      <script src="{% static 'admin/libs/simplebar/dist/simplebar.js' %}"></script>
+  
+    
+  {% endblock %}

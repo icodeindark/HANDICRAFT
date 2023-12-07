@@ -5,22 +5,22 @@
 
 {% block styles %}
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/bootstrap.min.css' %}">
     <!-- animate CSS -->
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/animate.css' %}">
     <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/owl.carousel.min.css' %}">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/all.css' %}">
     <!-- flaticon CSS -->
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/themify-icons.css' %}">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/magnific-popup.css' %}">
     <!-- swiper CSS -->
-    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/slick.css' %}">
     <!-- style CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -121,7 +121,7 @@
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3>Marble</h3>
                         <a href="{% url 'store:category_list' category_slug='marble' %}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                         <img src="{% static 'img\styling\marble-buddha.png' %}" alt="">
                     </div>
@@ -129,7 +129,7 @@
                 <div class="col-lg-5 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3>Wooden</h3>
                         <a href="{% url 'store:category_list' category_slug='wooden' %}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                         <img src="{% static 'img/styling/wood-elephant_re-png.png' %}" alt="">
                     </div>
@@ -137,7 +137,7 @@
                 <div class="col-lg-5 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3>Metal</h3>
                         <a href="{% url 'store:category_list' category_slug='metal' %}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                         <img src="{% static 'img/styling/metal-3-sculpta.png' %}" alt="">
                     </div>
@@ -145,7 +145,7 @@
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3>Brass</h3>
                         <a href="{% url 'store:category_list' category_slug='brass' %}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                         <img src="{% static 'img/styling/Handicraft-cover.png' %}" alt="">
                     </div>
@@ -378,7 +378,7 @@
     </section>
     <!-- awesome_shop part start-->
 
-
+    {% include 'inc/bestsellers.html' %}
 
     <!-- subscribe_area part start-->
     <section class="subscribe_area section_padding">
@@ -445,36 +445,36 @@
     <!--::subscribe_area part end::-->
 
 
-{% include 'inc/bestsellers.html' %}
+
 {% include 'inc/footer.html' %}
 
 {% block scripts %}
     <!-- jquery plugins here-->
-    <script src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery-1.12.1.min.js' %}"></script>
     <!-- popper js -->
-    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'store/js/popper.min.js' %}"></script>
     <!-- bootstrap js -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'store/js/bootstrap.min.js' %}"></script>
     <!-- easing js -->
-    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'store/js/jquery.magnific-popup.js' %}"></script>
     <!-- swiper js -->
-    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'store/js/swiper.min.js' %}"></script>
     <!-- swiper js -->
-    <script src="{% static 'js/masonry.pkgd.js' %}"></script>
+    <script src="{% static 'store/js/masonry.pkgd.js' %}"></script>
     <!-- particles js -->
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'store/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery.nice-select.min.js' %}"></script>
     <!-- slick js -->
-    <script src="{% static 'js/slick.min.js' %}"></script>
-    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'js/waypoints.min.js' %}"></script>
-    <script src="{% static 'js/contact.js' %}"></script>
-    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-    <script src="{% static 'js/jquery.form.js' %}"></script>
-    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'js/mail-script.js' %}"></script>
+    <script src="{% static 'store/js/slick.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'store/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'store/js/contact.js' %}"></script>
+    <script src="{% static 'store/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery.form.js' %}"></script>
+    <script src="{% static 'store/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'store/js/mail-script.js' %}"></script>
     <!-- custom js -->
-    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'store/js/custom.js' %}"></script>
 
 {% endblock %}
 
