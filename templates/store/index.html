@@ -1,26 +1,10 @@
-{% extends 'layouts/base.html' %}
+{% extends 'store/layouts/base.html' %}
 {% load static %}
 
 {% block title %} Home {% endblock %}
 
 {% block styles %}
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'store/css/bootstrap.min.css' %}">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="{% static 'store/css/animate.css' %}">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{% static 'store/css/owl.carousel.min.css' %}">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{% static 'store/css/all.css' %}">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="{% static 'store/css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'store/css/themify-icons.css' %}">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{% static 'store/css/magnific-popup.css' %}">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="{% static 'store/css/slick.css' %}">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+{% include 'store/inc/styles.html' %}
 {% endblock %}
 
 {% block content %}
@@ -44,7 +28,7 @@
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="{% static 'img/Handicraft-PNG-Picture.png' %}" alt="">
+                                    <img src="{% static 'store/img/Handicraft-PNG-Picture.png' %}" alt="">
                                 </div>
                             </div>
                         </div><div class="single_banner_slider">
@@ -61,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="{%static 'img/Handicraft-PNG-Picture.png' %}" alt="">
+                                    <img src="{%static 'store/img/Handicraft-PNG-Picture.png' %}" alt="">
                                 </div>
                             </div>
                         </div><div class="single_banner_slider">
@@ -78,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="{%static 'img/Handicraft-PNG-Picture.png' %}" alt="">
+                                    <img src="{%static 'store/img/Handicraft-PNG-Picture.png' %}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -123,7 +107,7 @@
                         <p>Premium Quality</p>
                         <h3>Marble</h3>
                         <a href="{% url 'store:category_list' category_slug='marble' %}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="{% static 'img\styling\marble-buddha.png' %}" alt="">
+                        <img src="{% static 'store\img\styling\marble-buddha.png' %}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
@@ -131,7 +115,7 @@
                         <p>Premium Quality</p>
                         <h3>Wooden</h3>
                         <a href="{% url 'store:category_list' category_slug='wooden' %}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="{% static 'img/styling/wood-elephant_re-png.png' %}" alt="">
+                        <img src="{% static 'store/img/styling/wood-elephant_re-png.png' %}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
@@ -139,7 +123,7 @@
                         <p>Premium Quality</p>
                         <h3>Metal</h3>
                         <a href="{% url 'store:category_list' category_slug='metal' %}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="{% static 'img/styling/metal-3-sculpta.png' %}" alt="">
+                        <img src="{% static 'store/img/styling/metal-3-sculpta.png' %}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7 col-sm-6">
@@ -147,7 +131,7 @@
                         <p>Premium Quality</p>
                         <h3>Brass</h3>
                         <a href="{% url 'store:category_list' category_slug='brass' %}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="{% static 'img/styling/Handicraft-cover.png' %}" alt="">
+                        <img src="{% static 'store/img/styling/Handicraft-cover.png' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -349,7 +333,7 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 col-md-6">
                     <div class="offer_img">
-                        <img src="{%static 'img/Handicraft-PNG-Picture.png'%}" alt="">
+                        <img src="{%static 'store/img/Handicraft-PNG-Picture.png'%}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -378,7 +362,7 @@
     </section>
     <!-- awesome_shop part start-->
 
-    {% include 'inc/bestsellers.html' %}
+    {% include 'store/inc/bestsellers.html' %}
 
     <!-- subscribe_area part start-->
     <section class="subscribe_area section_padding">
@@ -402,23 +386,23 @@
         </div>
     </section>
     <!--::subscribe_area part end::-->
-
+ 
     <!-- subscribe_area part start-->
     <section class="client_logo padding_top">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_1.png" alt="">
+                        <img src="static/store/img/client_logo/client_logo_1.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_2.png" alt="">
+                        <img src="store/img/client_logo/client_logo_2.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_3.png" alt="">
+                        <img src="store/img/client_logo/client_logo_3.png" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_4.png" alt="">
+                        <img src="store/img/client_logo/client_logo_4.png" alt="">
                     </div>
                     <div class="single_client_logo">
                         <img src="img/client_logo/client_logo_5.png" alt="">
@@ -446,36 +430,11 @@
 
 
 
-{% include 'inc/footer.html' %}
 
 {% block scripts %}
-    <!-- jquery plugins here-->
-    <script src="{% static 'store/js/jquery-1.12.1.min.js' %}"></script>
-    <!-- popper js -->
-    <script src="{% static 'store/js/popper.min.js' %}"></script>
-    <!-- bootstrap js -->
-    <script src="{% static 'store/js/bootstrap.min.js' %}"></script>
-    <!-- easing js -->
-    <script src="{% static 'store/js/jquery.magnific-popup.js' %}"></script>
-    <!-- swiper js -->
-    <script src="{% static 'store/js/swiper.min.js' %}"></script>
-    <!-- swiper js -->
-    <script src="{% static 'store/js/masonry.pkgd.js' %}"></script>
-    <!-- particles js -->
-    <script src="{% static 'store/js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'store/js/jquery.nice-select.min.js' %}"></script>
-    <!-- slick js -->
-    <script src="{% static 'store/js/slick.min.js' %}"></script>
-    <script src="{% static 'store/js/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'store/js/waypoints.min.js' %}"></script>
-    <script src="{% static 'store/js/contact.js' %}"></script>
-    <script src="{% static 'store/js/jquery.ajaxchimp.min.js' %}"></script>
-    <script src="{% static 'store/js/jquery.form.js' %}"></script>
-    <script src="{% static 'store/js/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'store/js/mail-script.js' %}"></script>
-    <!-- custom js -->
-    <script src="{% static 'store/js/custom.js' %}"></script>
-
+{% include 'store/inc/scripts.html'%}
 {% endblock %}
 
+
+{% include 'store/inc/footer.html' %}
 {% endblock %}

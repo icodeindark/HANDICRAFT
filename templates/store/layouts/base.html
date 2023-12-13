@@ -8,13 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}aranoz{% endblock %}</title>
     <link rel="icon" href="{% static 'img/favicon.png' %}">
+
 {%block styles%}
 
 {%endblock%}
 </head>
 
 <body>
-    {% include "inc/navbar.html" %}
+    {% include "store/inc/navbar.html" %}
 
     {%block content%}
     {%endblock%}

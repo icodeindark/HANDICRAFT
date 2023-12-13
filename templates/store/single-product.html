@@ -1,22 +1,22 @@
-{% extends 'layouts/base.html' %}
+{% extends 'store/layouts/base.html' %}
 {% load static %}
 {% block styles %}
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/bootstrap.min.css' %}">
   <!-- animate CSS -->
-  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/animate.css' %}">
   <!-- owl carousel CSS -->
-  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/lightslider.min.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/lightslider.min.css' %}">
   <!-- font awesome CSS -->
-  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/all.css' %}">
   <!-- flaticon CSS -->
-  <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-  <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/themify-icons.css' %}">
   <!-- font awesome CSS -->
-  <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/magnific-popup.css' %}">
   <!-- style CSS -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
 {% endblock %}
 
 
@@ -85,7 +85,7 @@
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
-              <a href="#" class="btn_3">add to cart</a>
+              <button type="button" id="add-button" value="{{product.id}}" class="btn btn-secondary btn-sm">Add to basket</button>
               <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
             </div>
           </div>
@@ -509,41 +509,56 @@
   </section>
   <!--================End Product Description Area =================-->
 
-{% include 'inc/bestsellers.html' %}
+{% include 'store/inc/bestsellers.html' %}
 
   
 {% block scripts %}
   <!-- jquery plugins here-->
   <!-- jquery -->
-  <script src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+  <script src="{% static 'store/js/jquery-1.12.1.min.js' %}"></script>
   <!-- popper js -->
-  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'store/js/popper.min.js' %}"></script>
   <!-- bootstrap js -->
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'store/js/bootstrap.min.js' %}"></script>
   <!-- easing js -->
-  <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+  <script src="{% static 'store/js/jquery.magnific-popup.js' %}"></script>
   <!-- swiper js -->
-  <script src="{% static 'js/lightslider.min.js' %}"></script>
+  <script src="{% static 'store/js/lightslider.min.js' %}"></script>
   <!-- swiper js -->
-  <script src="{% static 'js/masonry.pkgd.js' %}"></script>
+  <script src="{% static 'store/js/masonry.pkgd.js' %}"></script>
   <!-- particles js -->
-  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'store/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'store/js/jquery.nice-select.min.js' %}"></script>
   <!-- slick js -->
-  <script src="{% static 'js/slick.min.js' %}"></script>
-  <script src="{% static 'js/swiper.jquery.js' %}"></script>
-  <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-  <script src="{% static 'js/waypoints.min.js' %}"></script>
-  <script src="{% static 'js/contact.js' %}"></script>
-  <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-  <script src="{% static 'js/jquery.form.js' %}"></script>
-  <script src="{% static 'js/jquery.validate.min.js' %}"></script>
-  <script src="{% static 'js/mail-script.js' %}"></script>
-  <script src="{% static 'js/stellar.js' %}"></script>
+  <script src="{% static 'store/js/slick.min.js' %}"></script>
+  <script src="{% static 'store/js/swiper.jquery.js' %}"></script>
+  <script src="{% static 'store/js/jquery.counterup.min.js' %}"></script>
+  <script src="{% static 'store/js/waypoints.min.js' %}"></script>
+  <script src="{% static 'store/js/contact.js' %}"></script>
+  <script src="{% static 'store/js/jquery.ajaxchimp.min.js' %}"></script>
+  <script src="{% static 'store/js/jquery.form.js' %}"></script>
+  <script src="{% static 'store/js/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'store/js/mail-script.js' %}"></script>
+  <script src="{% static 'store/js/stellar.js' %}"></script>
   <!-- custom js -->
-  <script src="{% static 'js/theme.js' %}"></script>
-  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'store/js/theme.js' %}"></script>
+  <script src="{% static 'store/js/custom.js' %}"></script>
+<script>
+  $.ajax({
+    type: 'POST',
+    url: '{% url "basket:basket_add" %}',
+    data: {
+        productid: parseInt($('#add-button').val()),
+        csrfmiddlewaretoken: "{{csrf_token}}",
+        action: 'post'
+    },
+    success: function (json) {
+        document.getElementById("basket-qty").innerHTML = json.qty
+    },
+    error: function (xhr, errmsg, err) {}
+});
+</script>
 {% endblock %}
 
-{% include 'inc/footer.html'%}
+{% include 'store/inc/footer.html'%}
 {% endblock %}
