@@ -119,6 +119,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, "store/static"),
     os.path.join(BASE_DIR, "custom_admin/static"),
+    os.path.join(BASE_DIR,"basket/static"),
     
 ]
 

@@ -1,23 +1,33 @@
-from django.shortcuts import render,get_object_or_404
-from django.http import JsonResponse
+from django.shortcuts import render
 
-from .basket import Basket
+from .models import *
+from store.models import *
 
-from store.models import Product
 
-# Create your views here.
+
 def basket_summary(request):
-    return render(request,'store/cart.html')
+	if request.user.is_authenticated:
+		customer = request.user.customer
+		order, created = Order.objects.get_or_create(customer=customer, complete=False)
+		items = order.orderitem_set.all()
+		print(customer, order, items)
+	else:
+		items = []
+		order={'get_cart_total':0}
 
-def basket_add(request):
-    basket = Basket(request)
+	context = {'items': items, 'order':order}
+	return render(request, 'store/cart.html', context)
 
-    if request.POST.get('action') == 'POST':
-        product_id = int(request.POST.get('productid'))
-        product = get_object_or_404(Product, id=product_id)
-        basket.add(product=product)
-        response = JsonResponse({'test' : 'data'})
-        return response
-    else:
-        # You might want to add a response for non-POST requests
-        return JsonResponse({'error': 'Invalid request method'})
+
+def checkout(request):
+	if request.user.is_authenticated:
+		customer = request.user.customer
+		order, created = Order.objects.get_or_create(customer=customer, complete=False)
+		items = order.orderitem_set.all()
+		print(customer, order, items)
+	else:
+		items = []
+		order={'get_cart_total':0}
+
+	context = {'items': items, 'order':order}
+	return render(request, 'store/checkout.html', context)
